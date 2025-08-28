@@ -11,9 +11,9 @@ def load_txt_data(data_path):
 
 
 if __name__ == "__main__":
-    fuse_data_path = './fused.txt'
-    gps_data_path = './gps_measurement.txt'
-    gt_data_path = './gt.txt'
+    fuse_data_path = './data/fused.txt'
+    gps_data_path = './data/gps_measurement.txt'
+    gt_data_path = './data/gt.txt'
 
     fuse_data = load_txt_data(fuse_data_path)
     gps_data = load_txt_data(gps_data_path)

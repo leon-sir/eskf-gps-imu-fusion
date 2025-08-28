@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gps_imu_fusion Launch Debug", // 配置名称
+            "type": "cppdbg", // 调试器类型
+            "request": "launch", // 启动程序
+            "program": "${workspaceFolder}/build/gps_imu_fusion", // 指向 CMake 在 build 目录下生成的 Debug 版可执行文件
+            "args": ["./config/config.yaml", "./data"],// 传递给程序的命令行参数
+            "stopAtEntry": false, // 是否在 main 函数开头暂停
+            "cwd": "${workspaceFolder}", // 工作目录
+            "environment": [],
+            "externalConsole": false, // 是否使用外部控制台
+            "MIMode": "gdb", // 指定使用的调试器，这里是 gdb
+            "miDebuggerPath": "/usr/bin/gdb", // 你系统上 gdb 的完整路径（需查找确认）
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // "preLaunchTask": "build-debug" // 可选但推荐：指定在启动调试前运行的任务（例如编译任务），需与 tasks.json 中的 label 一致
+        }
+    ]
+}

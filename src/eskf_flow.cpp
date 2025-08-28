@@ -70,12 +70,14 @@ bool ESKFFlow::Run() {
         if (curr_imu_data_.time < curr_gps_data_.time) {
             eskf_ptr_->Predict(curr_imu_data_);
             imu_data_buff_.pop_front();
+            std::cout<<"predict"<<std::endl;
         } else {
             eskf_ptr_->Predict(curr_imu_data_);
             imu_data_buff_.pop_front();
 
             if (!config_parameters_.only_prediction_) {
                 eskf_ptr_->Correct(curr_gps_data_);
+                std::cout<<"correct"<<std::endl;
             }
 
             SaveTUMPose(fused_file, Eigen::Quaterniond(eskf_ptr_->GetPose().topLeftCorner<3, 3>()),

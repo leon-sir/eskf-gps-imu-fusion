@@ -36,19 +36,33 @@ cmake ..
 make 
 ```
 
+```shell
+rm -rf build/
+ps@ps:~/my_tools/eskf-gps-imu-fusion$ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug 
+cd build
+cmake ..
+make 
+
+```
+
+
 ## 3. 运行
 
 ```shell
 cd eskf-gps-imu-fusion
 ./build/gps_imu_fusion ./config/config.yaml ./data
+
+./build/test_gps ./data/raw_data
 ```
+
+
+
 
 ## 4.轨迹显示
 
 执行完`./gps_imu_fusion`会生成轨迹文件
 ```shell
-cd eskf-gps-imu-fusion/data
-python display_path.py
+python3 data/display_path.py
 ```
 
 ## 5.误差分析
